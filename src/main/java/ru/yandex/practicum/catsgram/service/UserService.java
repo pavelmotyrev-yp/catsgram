@@ -3,6 +3,7 @@ package ru.yandex.practicum.catsgram.service;
 import org.springframework.stereotype.Service;
 import ru.yandex.practicum.catsgram.exception.ConditionsNotMetException;
 import ru.yandex.practicum.catsgram.exception.DuplicatedDataException;
+import ru.yandex.practicum.catsgram.exception.InternalServerErrorException;
 import ru.yandex.practicum.catsgram.model.User;
 
 import java.time.Instant;
@@ -60,6 +61,10 @@ public class UserService {
     public boolean isExist(Long id) {
         User user = users.getOrDefault(id, null);
         return user != null;
+    }
+
+    public User getUser(Long userId) {
+        throw new InternalServerErrorException("Not allowed yet");
     }
 
     private void checkEmail(String newEmail) {
