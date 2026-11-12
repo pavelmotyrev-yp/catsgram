@@ -3,15 +3,11 @@ package ru.yandex.practicum.catsgram.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.yandex.practicum.catsgram.exception.ConditionsNotMetException;
-import ru.yandex.practicum.catsgram.exception.InternalServerErrorException;
 import ru.yandex.practicum.catsgram.exception.NotFoundException;
 import ru.yandex.practicum.catsgram.model.Post;
 
 import java.time.Instant;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 // Указываем, что класс PostService - является бином и его
 // нужно добавить в контекст приложения
@@ -74,7 +70,7 @@ public class PostService {
     }
 
     public Post getPost(Long postId) {
-        throw new InternalServerErrorException("Not allowed yet");
+        return posts.get(postId);
     }
 
     private long getNextId() {
